@@ -1,0 +1,14 @@
+{
+  "name": "digits-2-word",
+  "version": "1.0.0",
+  "description": "This program converts digits to words",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": ["digits", "words", "money"],
+  "author": "Ajayi Jeremiah",
+  "email": "lovinjerry004@gmail.com",
+  "license": ""
+}
