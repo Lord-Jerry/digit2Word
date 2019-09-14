@@ -1,5 +1,3 @@
-// TODO: make program read figures from command line
-
 const Converter = require('./converter');
 const process = require('process');
 process.stdin.setEncoding('utf8');
@@ -17,7 +15,4 @@ process.stdin.on('readable', () => {
     
   }
 
-  console.log('Please Enter Amount');
-
 });
-
