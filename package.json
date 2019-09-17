@@ -1,14 +1,23 @@
 {
-  "name": "digits-2-word",
+  "name": "digits2word",
   "version": "1.0.0",
   "description": "This program converts digits to words",
-  "main": "index.js",
+  "main": "converter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "bugs": {
+    "url": "https://github.com/lord-jerry/digit2word/issues"
+  },
   "keywords": ["digits", "words", "money"],
   "author": "Ajayi Jeremiah",
   "email": "lovinjerry004@gmail.com",
-  "license": ""
+  "files": [
+    "converter.js",
+    "LICENSE",
+    "numbers.js"
+  ],
+  "homepage": "https://github.com/lord-jerry/digit2word#readme",
+  "license": "MIT"
 }
