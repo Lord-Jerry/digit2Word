@@ -176,7 +176,12 @@ class Converter {
    * @param { String } figures
    * @returns { String } 
    */
-  run(figures = '') {
+  convert(figures = '') {
+
+    // trim with spaces and make sure input is a number 
+    const amount = Number(figures.trim());
+
+    if (isNaN(amount)) return 'Not a valid number';
 
     if (figures.length === 0) return '';
     if (figures.length === 1) return this.unit(figures);
@@ -192,4 +197,4 @@ class Converter {
   }
 }
 
-module.exports = Converter;
+module.exports = new Converter();
