@@ -3,7 +3,6 @@
 const numbers = require('./numbers.js');
 
 /**
- * TODO: Write Unit Tests
  * this class converts figures to words
  */
 class Converter {
@@ -178,7 +177,8 @@ class Converter {
    */
   convert(figures = '') {
 
-    // trim with spaces and make sure input is a number 
+    if (typeof (figures) !== 'string') return `expected string got ${typeof(figures)}`; 
+    // trim with spaces and make sure input is a number
     const amount = Number(figures.trim());
 
     if (isNaN(amount)) return 'Not a valid number';

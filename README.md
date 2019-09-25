@@ -4,7 +4,7 @@ A Javascript library for converting digits to word.
 
 ## Description
 
-Most times when trying to send money with mobile bank apps, 
+Most times when trying to send money with mobile bank apps or web apps, 
 we do make mistakes of sending more than we intended to.
 For example sending 10000.00 instead of 1000.00.
 
