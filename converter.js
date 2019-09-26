@@ -172,14 +172,14 @@ class Converter {
 
   /**
    * 
-   * @param { String } figures
+   * @param { String } amount
    * @returns { String } 
    */
-  convert(figures = '') {
+  convert(amount = '') {
 
-    if (typeof (figures) !== 'string') return `expected string got ${typeof(figures)}`; 
-    // trim with spaces and make sure input is a number
-    const amount = Number(figures.trim());
+    if (typeof (amount) !== 'number') return `expected number got ${typeof(amount)}`; 
+    // convert amount type to string so we can make use of the length property
+    const figures = String(amount);
 
     if (isNaN(amount)) return 'Not a valid number';
 
