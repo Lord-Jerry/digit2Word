@@ -22,5 +22,5 @@ Installation uses the [npm](http://npmjs.org/) package manager.  Just type the f
 const digit2word = require('digit2word');
 
 // Convert digit to word
-const output = digit2word.convert('546789');
+const output = digit2word.convert(546789);
 console.log(output);

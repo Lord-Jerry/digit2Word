@@ -1,6 +1,6 @@
 {
   "name": "digits2word",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This program converts digits to words",
   "main": "converter.js",
   "scripts": {
