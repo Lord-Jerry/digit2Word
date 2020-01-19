@@ -1,11 +1,21 @@
 // @ts-check
 
-const numbers = require('./numbers.js');
+let numbers;
 
 /**
  * this class converts figures to words
  */
 class Converter {
+  constructor(config) {
+    // TODO: perform a strict check to ensure passed param is not an array
+    console.log(config);
+    if (config === undefined && typeof config !== 'object') {
+      throw new TypeError(`Expected type of config to be an object, but got ${typeof config} instead`);
+    }
+    const { language } = config;
+     
+    if (language === 'eng') numbers = require('./language/english.js');
+  }
 
   /**
    * 
@@ -197,4 +207,4 @@ class Converter {
   }
 }
 
-module.exports = new Converter();
+module.exports = Converter;
