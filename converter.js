@@ -6,23 +6,13 @@ let numbers;
  * this class converts figures to words
  */
 class Converter {
-  constructor(config) {
-    // TODO: perform a strict check to ensure passed param is not an array
-    console.log(config);
-    if (config === undefined && typeof config !== 'object') {
-      throw new TypeError(`Expected type of config to be an object, but got ${typeof config} instead`);
-    }
-    const { language } = config;
-     
-    if (language === 'eng') numbers = require('./language/english.js');
-  }
 
   /**
    * 
    * @param { String } figure
    * @returns { String }
    */
-  unit(figure) {
+  static unit(figure) {
     if (numbers[figure] !== undefined) return numbers[figure];
 
     return '';
@@ -34,7 +24,7 @@ class Converter {
    * @param { String } figures
    * @returns { String }
    */
-  tens(figures) {
+  static tens(figures) {
     if (numbers[figures] !== undefined) return numbers[figures];
 
     return '';
@@ -45,7 +35,7 @@ class Converter {
    * @param { String } figures
    * @returns { String }
    */
-  hundreds(figures) {
+  static hundreds(figures) {
     let numInWords = '';
 
     // get the word form of the first digit
@@ -68,7 +58,7 @@ class Converter {
    * @param { String } figures
    * @returns { String }
    */
-  thousands(figures) {
+  static thousands(figures) {
     let numInWords = '';
 
     // get the word form of the first digit
@@ -88,7 +78,7 @@ class Converter {
    * @param { String } figures
    * @returns { String }
    */
-  tenThousands(figures) {
+  static tenThousands(figures) {
     let numInWords = '';
 
     // get first two digit
@@ -113,7 +103,7 @@ class Converter {
    * @param { String } figures
    * @returns { String }
    */
-  hundredThousands(figures) {
+  static hundredThousands(figures) {
     let numInWords = '';
 
     // get first three digit
@@ -138,7 +128,7 @@ class Converter {
    * @param { String } figures
    * @returns { String }
    */
-  million(figures) {
+  static million(figures) {
     let numInWords = '';
 
 
@@ -160,7 +150,7 @@ class Converter {
    * @param { String } figures
    * @returns { String }
    */
-  tenMillions(figures) {
+  static tenMillions(figures) {
     let numInWords = '';
 
     // get first two digit
@@ -179,19 +169,49 @@ class Converter {
     return numInWords;
   }
 
+  /**
+   * 
+   * @param { String } amount
+   * @param { Object } config 
+   */
+  static _validate(amount, config) {
+    if (typeof (amount) !== 'number') {
+      throw new TypeError(`expected number got ${typeof(amount)}`);
+    }
+
+    if (isNaN(amount)) {
+      throw new TypeError('Not a valid number');
+    }
+
+    if (config === undefined || typeof config !== 'object') {
+      throw new TypeError(`Expected type of config to be an object, but got ${typeof config} instead`);
+    }
+
+    const { lang } = config;
+   
+    switch (lang) {
+      case 'eng':
+        numbers = require('./language/english.js');
+        break;
+
+      default:
+        numbers = require('./language/english.js');
+    }
+
+  }
 
   /**
    * 
    * @param { String } amount
+   * @param { object } config
    * @returns { String } 
    */
-  convert(amount = '') {
+  static convert(amount = '', config= {}) {
 
-    if (typeof (amount) !== 'number') return `expected number got ${typeof(amount)}`; 
+    this._validate(amount, config);
+    
     // convert amount type to string so we can make use of the length property
     const figures = String(amount);
-
-    if (isNaN(amount)) return 'Not a valid number';
 
     if (figures.length === 0) return '';
     if (figures.length === 1) return this.unit(figures);
