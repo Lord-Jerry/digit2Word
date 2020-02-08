@@ -196,6 +196,12 @@ class Converter {
       case 'esp':
         numbers = require('./locale/spanish.js');
         break;
+      case 'yor':
+        numbers = require('./locale/yoruba.js');
+        break;
+      case 'igb':
+        numbers = require('./locale/igbo.js');
+        break;
       default:
         numbers = require('./locale/english.js');
     }
