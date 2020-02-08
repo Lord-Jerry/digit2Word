@@ -191,11 +191,13 @@ class Converter {
    
     switch (lang) {
       case 'eng':
-        numbers = require('./language/english.js');
+        numbers = require('./locale/english.js');
         break;
-
+      case 'esp':
+        numbers = require('./locale/spanish.js');
+        break;
       default:
-        numbers = require('./language/english.js');
+        numbers = require('./locale/english.js');
     }
 
   }
